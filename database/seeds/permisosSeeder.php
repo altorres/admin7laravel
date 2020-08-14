@@ -46,6 +46,12 @@ class permisosSeeder extends Seeder
 
         $useradmin->roles()->sync([$rolAdmin->id]);
 
+        $rolInvitado= Roles::create([
+            'name'=>'Invitado',
+            'slug'=>'invitado',
+            'descripcion'=>'invitado',
+            'full-access'=>'no',
+        ]);
 
         $permiso_all =[];
 

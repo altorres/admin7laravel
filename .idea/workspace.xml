@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46092498-f716-4a3e-9760-8260893bf548" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Traits/UserTrait.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/custom/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/role/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/role/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/role/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/role/view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/permisosSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/permisosSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +174,7 @@
       <updated>1597077082361</updated>
       <workItem from="1597077083975" duration="2035000" />
       <workItem from="1597157975265" duration="6741000" />
-      <workItem from="1597171112471" duration="29060000" />
+      <workItem from="1597171112471" duration="31123000" />
     </task>
     <servers />
   </component>
