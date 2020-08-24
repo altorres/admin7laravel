@@ -22,13 +22,12 @@
         <div class="{{ $auth_type ?? 'login' }}-logo">
             <a href="{{ $dashboard_url }}">
                 <img src="{{ asset(config('adminlte.logo_img')) }}" height="50">
-                {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
+                {!! config('adminlte.logo', 'Medinuclear') !!}
             </a>
         </div>
 
         {{-- Card Box --}}
-        <div class="card {{ config('adminlte.classes_auth_card', 'card-outline card-primary') }}">
-
+        <div class="card {{ config('adminlte.classes_auth_card', 'card-outline card-danger') }}">
             {{-- Card Header --}}
             @hasSection('auth_header')
                 <div class="card-header {{ config('adminlte.classes_auth_header', '') }}">
