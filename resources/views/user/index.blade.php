@@ -1,16 +1,16 @@
-@extends('adminlte::page')
-
+@extends('layouts.app')
+@section('title') Usuarios @endsection
+@section('nombre') Index @endsection
+@section('ruta')Index  @endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header"><h2>List of Users</h2></div>
+                    <div class="card-header"><h2>Lista de Usuarios @can('haveaccess','user.create')<a class="btn btn-default" href="{{route('user.create')}}"><i class="fas fa-user-plus" style="color: #db0202"></i></a> @endcan</h2></div>
 
                     <div class="card-body">
 
-
-                        <br><br>
 
                         @include('custom.message')
 
@@ -21,11 +21,13 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Role(s)</th>
-                                <th colspan="3"></th>
+                                <th colspan="col">Ver</th>
+                                <th colspan="col">Editar</th>
+                                <th colspan="col">Eliminar</th>
+                                <th colspan="col">Contraseña</th>
                             </tr>
                             </thead>
                             <tbody>
-
 
                             @foreach ($users as $user)
 
@@ -41,12 +43,12 @@
                                     </td>
                                     <td>
                                         @can('view',[$user, ['user.show','userown.show'] ])
-                                            <a class="btn btn-info" href="{{ route('user.show',$user->id)}}">Show</a>
+                                            <a class="btn btn-info" href="{{ route('user.show',$user->id)}}"><i class="fas fa-user"></i></a>
                                         @endcan
                                     </td>
                                     <td>
                                         @can('view', [$user, ['user.edit','userown.edit'] ])
-                                            <a class="btn btn-success" href="{{ route('user.edit',$user->id)}}">Edit</a>
+                                            <a class="btn btn-success" href="{{ route('user.edit',$user->id)}}"><i class="fas fa-user-edit"></i></a>
                                         @endcan
                                     </td>
                                     <td>
@@ -54,12 +56,49 @@
                                             <form action="{{ route('user.destroy',$user->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger"><i class="fas fa-user-times" ></i></button>
                                             </form>
                                         @endcan
-
-
                                     </td>
+                                    <td>
+                                        @can('view', [$user, ['user.edit','userown.edit'] ])
+                                        <a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" href="#"><i class="fas fa-key"></i></a>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <form action="{{route('user.password',$user->id)}}" method="post">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Cambio de Contraseña</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+                                                            <div class="form-group has-feedback">
+                                                                <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
+                                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                            </div>
+                                                            <div class="form-group has-feedback">
+                                                                <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="password_confirmation"/>
+                                                                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                        @endcan
+                                    </td>
+
                                 </tr>
                             @endforeach
 

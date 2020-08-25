@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title') Inicio @endsection
+@section('nombre') Inicio @endsection
+@section('ruta')  @endsection
 @section('content')
     <div class="card">
         <div class="card-header">
@@ -13,7 +15,7 @@
             </div>
         </div>
         <div class="card-body">
-            Start creating your amazing application!
+            Start creating your amazing application! <a href="{{ route('register') }}">Register</a>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

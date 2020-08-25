@@ -1,5 +1,4 @@
-@extends('adminlte::page')
-
+@extends('layouts.app')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -55,8 +54,8 @@
 
                                 <hr>
 
-                                <a class="btn btn-success" href="{{route('user.edit',$user->id)}}">Edit</a>
-                                <a class="btn btn-danger" href="{{route('user.index')}}">Back</a>
+                                <a class="btn btn-success" href="{{route('user.edit',$user->id)}}">Editar <i class="fas fa-user-edit"></i></a>
+                                <a class="btn btn-danger" href="{{route('user.index')}}">Volver <i class="fas fa-chevron-circle-left"></i></a>
 
                             </div>
 

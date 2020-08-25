@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Gate;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -25,7 +25,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/role', 'RoleController')->names('role');
-Route::resource('/user', 'UserController',['except'=>['create','store']])->names('user');
+Route::post('user/password/{id}','UserController@password')->name('user.password');
+Route::resource('/user', 'UserController')->names('user');
 
 Route::get('/test', function () {
 

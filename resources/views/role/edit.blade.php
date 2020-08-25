@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -18,7 +18,7 @@
 
                             <div class="container">
 
-                                <h3>Required data</h3>
+
 
                                 <div class="form-group">
                                     <input type="text" class="form-control"
@@ -74,7 +74,6 @@
 
                                 <hr>
 
-
                                 <h3>Lista de permisos</h3>
 
 
@@ -109,45 +108,12 @@
 
                                 @endforeach
                                 <hr>
-                                <input class="btn btn-primary" type="submit" value="Save">
-
-
-
-
-
-
-
-
+                                <input class="btn btn-primary" type="submit" value="Guardar">
 
                             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         </form>
-
-
-
-
-
-
-
 
                     </div>
                 </div>

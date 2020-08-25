@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -11,7 +11,7 @@
                         @can('haveaccess','roles.create')
                             <a href="{{route('role.create')}}"
                                class="btn btn-primary float-right"
-                            >Create
+                            >Crear Rol  <i class="fas fa-plus-circle"></i>
                             </a>
                             <br><br>
                         @endcan
@@ -24,7 +24,10 @@
                                 <th scope="col">Slug</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Full access</th>
-                                <th colspan="3"></th>
+                                <th scope="col">Ver</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Eliminar</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -39,12 +42,12 @@
                                     <td>{{ $role['full-access']}}</td>
                                     <td>
                                         @can('haveaccess','roles.show')
-                                            <a class="btn btn-info" href="{{ route('role.show',$role->id)}}">Show</a>
+                                            <a class="btn btn-warning" href="{{ route('role.show',$role->id)}}"><i class="fas fa-eye"></i></a>
                                         @endcan
                                     </td>
                                     <td>
                                         @can('haveaccess','roles.edit')
-                                            <a class="btn btn-success" href="{{ route('role.edit',$role->id)}}">Edit</a>
+                                            <a class="btn btn-success" href="{{ route('role.edit',$role->id)}}"><i class="fas fa-pen"></i></a>
                                         @endcan
                                     </td>
 
@@ -53,7 +56,7 @@
                                             <form action="{{ route('role.destroy',$role->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger">Delete</button>
+                                                <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                                             </form>
                                         @endcan
 

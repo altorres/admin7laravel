@@ -1,11 +1,10 @@
-@extends('adminlte::page')
-
+@extends('layouts.app')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>Edit Role</h2></div>
+                    <div class="card-header"><h2>Rol {{$role->name}}</h2></div>
 
                     <div class="card-body">
                         @include('custom.message')
@@ -18,9 +17,7 @@
 
                             <div class="container">
 
-                                <h3>Required data</h3>
-
-                                <div class="form-group">
+                                 <div class="form-group">
                                     <input type="text" class="form-control"
                                            id="name"
                                            placeholder="Name"
@@ -111,8 +108,8 @@
                                 @endforeach
                                 <hr>
 
-                                <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Edit</a>
-                                <a class="btn btn-danger" href="{{route('role.index')}}">Back</a>
+                                <a class="btn btn-success" href="{{route('role.edit',$role->id)}}">Editar <i class="fas fa-pen"></i></a>
+                                <a class="btn btn-danger" href="{{route('role.index')}}">Volver <i class="fas fa-chevron-circle-left"></i></a>
 
 
 

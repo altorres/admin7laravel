@@ -107,6 +107,7 @@ class permisosSeeder extends Seeder
         );
 
         $permiso_all[]=$permiso->id;
+
         $permiso=Permiso::create([
                 'name'=>'Mostrar usuario',
                 'slug'=>'user.show',

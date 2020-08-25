@@ -6,6 +6,8 @@ use App\Permiso;
 use App\Roles;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -20,8 +22,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $this->authorize('haveaccess','user.index');
-        $users=User::with('roles')->orderBy('id','desc')->paginate(2);
+    {   $this->authorize('haveaccess',['user.index','user.password']);
+        $users=User::with('roles')->orderBy('id','desc')->paginate(6);
         return view('user.index', compact('users'));
     }
 
@@ -32,8 +34,9 @@ class UserController extends Controller
      */
     public function create()
     {
-       // $this->authorize('create',User::class);
-        //return 'create';
+        Gate::authorize('haveaccess','user.create');
+        $roles= Roles::orderby('name','asc')->get();
+        return view('user.create',compact('roles'));
     }
 
     /**
@@ -44,7 +47,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required|max:100',
+            'email'=>'required|max:50|unique:users,email',
+            'password'=>'required|max:50|confirmed',
+
+        ]);
+
+        //$user=User::create($request->all());
+        $user= User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        if($request->roles){
+
+            $user->roles()->sync($request->roles);
+
+
+        }
+
+        return redirect()->route('user.index')->with('status_success','Usuario Agregado con Exito');
     }
 
     /**
@@ -114,5 +137,17 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->with('status_success','Usuario eliminado con exito');
         //
+    }
+    public function password(User $user, Request $request){
+
+
+
+        $request->validate([
+            'password'=>'required|max:50|confirmed',
+
+        ]);
+        User::where('id',$user->id)->update(['password' => Hash::make($request->password),]);
+
+        return redirect()->route('user.index')->with('status_success','Cambio de Contraseña exitoso');
     }
 }
