@@ -68,7 +68,7 @@
                                             <div class="modal-dialog" role="document">
                                                 <form action="{{route('user.password',$user->id)}}" method="post">
                                                     @csrf
-                                                    @method('PUT')
+
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Cambio de Contraseña</h5>

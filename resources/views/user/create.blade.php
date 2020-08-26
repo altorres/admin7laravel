@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('title') Editar Usuario @endsection
-@section('nombre') Editar usuario @endsection
-@section('ruta') Edit @endsection
+@section('title') Agregar Usuario @endsection
+@section('nombre') Agregar usuario @endsection
+@section('ruta') Agregar @endsection
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h2>Editar Usuario</h2></div>
+                    <div class="card-header"><h2>Agregar Usuario</h2></div>
 
                     <div class="card-body">
                         @include('custom.message')

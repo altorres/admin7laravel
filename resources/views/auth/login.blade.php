@@ -8,12 +8,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+          <img src="{{url(\App\Parametrizacion::first()->logoI)}}">
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Coloca los datos para iniciar sesion</p>
 
                 <form action="{{ route('login') }}" method="post">
                     @csrf

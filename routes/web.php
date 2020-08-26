@@ -23,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/parametrizacion/index', 'ParametrizacionController@index')->name('parametrizacion.index');
+Route::post('/parametrizacion/update/{id}', 'ParametrizacionController@update')->name('parametrizacion.update');
 
 Route::resource('/role', 'RoleController')->names('role');
 Route::post('user/password/{id}','UserController@password')->name('user.password');

@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\Roles;
 use App\Permiso;
+use App\Parametrizacion;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -51,6 +52,14 @@ class permisosSeeder extends Seeder
             'slug'=>'invitado',
             'descripcion'=>'invitado',
             'full-access'=>'no',
+        ]);
+        $parametrizaciones=Parametrizacion::create([
+            'id'=>1,
+            'imagenP'=>"imagenes/imagenP.png",
+            'nameL'=>'DEFAULT',
+            'imagenS'=>"imagenes/imagenS.png",
+            "mostrarS"=>'no',
+            'logoI'=>"imagenes/logoI.png",
         ]);
 
         $permiso_all =[];
@@ -143,6 +152,13 @@ class permisosSeeder extends Seeder
                 'name'=>'Editar usuario propio',
                 'slug'=>'userown.edit',
                 'descripcion'=>'Editar usuario propio',]
+        );
+
+        $permiso_all[]=$permiso->id;
+        $permiso=Permiso::create([
+                'name'=>'Lista Parametros',
+                'slug'=>'parametrizacion.index',
+                'descripcion'=>'Muestra las parametrizaciones del programa',]
         );
 
         $permiso_all[]=$permiso->id;
