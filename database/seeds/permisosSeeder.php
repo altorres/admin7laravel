@@ -47,13 +47,13 @@ class permisosSeeder extends Seeder
 
         $useradmin->roles()->sync([$rolAdmin->id]);
 
-        $rolInvitado= Roles::create([
+       Roles::create([
             'name'=>'Invitado',
             'slug'=>'invitado',
             'descripcion'=>'invitado',
             'full-access'=>'no',
         ]);
-        $parametrizaciones=Parametrizacion::create([
+       Parametrizacion::create([
             'id'=>1,
             'imagenP'=>"imagenes/imagenP.png",
             'nameL'=>'DEFAULT',

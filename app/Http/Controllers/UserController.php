@@ -138,15 +138,13 @@ class UserController extends Controller
         return redirect()->route('user.index')->with('status_success','Usuario eliminado con exito');
         //
     }
-    public function password(User $user, Request $request){
-
-
+    public function password($id, Request $request){
 
         $request->validate([
             'password'=>'required|max:50|confirmed',
 
         ]);
-        User::where('id',$user->id)->update(['password' => Hash::make($request->password),]);
+        User::where('id',$id)->update(['password' => Hash::make($request->password),]);
 
         return redirect()->route('user.index')->with('status_success','Cambio de Contraseña exitoso');
     }

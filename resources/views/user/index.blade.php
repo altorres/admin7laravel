@@ -62,11 +62,11 @@
                                     </td>
                                     <td>
                                         @can('view', [$user, ['user.edit','userown.edit'] ])
-                                        <a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" href="#"><i class="fas fa-key"></i></a>
+                                        <a class="btn btn-warning clickF" data-toggle="modal" data-target="#exampleModal" data-valor="{{'{"id":'.$user->id.'}'}}" href="#"><i class="fas fa-key"></i></a>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                                <form action="{{route('user.password',$user->id)}}" method="post">
+                                                <form id="form1" method="post">
                                                     @csrf
 
                                                     <div class="modal-content">
@@ -119,4 +119,27 @@
             </div>
         </div>
     </div>
+
+
+    @push('scripts')
+        <script>
+            $(".clickF").click(function(e) {
+                e.preventDefault();
+                var data = $(this).attr("data-valor");
+                data = JSON.parse(data);
+                var id=data.id;
+                // $('.modal-body #nombre').val(data.nombreCompleto);
+                // $('.modal-body #telefono').val(data.telefono);
+                // $('.modal-body #celular').val(data.celular);
+                // $('.modal-body #boton').val(data.tipo);
+                document.getElementById("form1").action="user/password/"+(id);
+                /*$.getJSON($(this).attr("data-valor"), {format: "json"}, function(data) {
+                 $(".modal-body #nombreS").val(data[0].nombreS);
+                 $("p").html(data[0].description);
+                 });*/
+                //$("").val( data );
+            });
+        </script>
+
+    @endpush
 @endsection
